@@ -1,0 +1,64 @@
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AnyAut_Application {
+	static WebDriver driver;
+
+	@Before
+	public void myBefore() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Javeria Khaliq\\eclipse-workspace\\Selenium\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("https://anyaut.com/");
+		driver.manage().window().maximize();
+		
+		
+	}
+	
+	
+	@Ignore
+	public void Video() throws Exception {
+	System.out.println("****************** Test 1 Video Start Here ************************");
+	Thread.sleep(2000);
+	System.out.println(driver.findElement(By.cssSelector("div[id='player]'a[class='ytp-title-link yt-uix-sessionlink']")).isDisplayed());
+	driver.findElement(By.cssSelector("div[id='player']div[class='ytp-title-text']")).click();
+	
+	}
+	
+	@Test
+	public void Feature() throws Exception {
+		System.out.println("****************** Test 2 Feature Start Here ************************");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//li[@class='page-scroll']//a[contains(text(),'Features')]")).click();
+		WebElement source = driver.findElement(By.xpath("//section[@id='features']/div[@class='container']"));
+		
+		
+		System.out.println(source.isDisplayed());
+		System.out.println(source.getText());
+		System.out.println(source.getSize());
+
+	
+	}
+	
+	
+	@Test
+	public void pricing() throws Exception {
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//a[contains(text(),'Pricing')]")).click();
+	}
+	
+	@After
+	public void myAfter() {
+		System.out.println("Driver close Successfully");
+		driver.close();
+		
+	}
+
+}

@@ -1,0 +1,38 @@
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ddf1 {
+	WebDriver myDriver;
+	
+	@Before
+	public void myBefore() {
+		
+		System.out.println("Before");
+		//prepare Test
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Javeria Khaliq\\eclipse-workspace\\Selenium\\chromedriver.exe");
+		myDriver = new ChromeDriver();
+		myDriver.navigate().to("https://www.mortgagecalculator.org/");
+	}
+
+	@Test 
+	public void mytest() {
+		
+		System.out.println("Test1");
+		//myDriver.findElement(By.name("param[homevalue]")).sendKeys("4120000");
+		myDriver.findElement(By.name("param[homevalue]")).sendKeys("4120000");
+
+		
+	}
+	
+	@After
+	public void myafter() {
+		System.out.println("My Test Successfully");
+		
+	}
+
+}

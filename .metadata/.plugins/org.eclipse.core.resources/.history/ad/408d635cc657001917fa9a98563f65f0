@@ -1,0 +1,58 @@
+import org.junit.Before;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class KDF3 {
+	static WebDriver myDriver;
+	
+	@Before
+	public void myBefore() throws Exception {
+		
+		// Setup the webDriver 
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Javeria Khaliq\\eclipse-workspace\\Selenium\\chromedriver.exe");
+			
+		// Open the Browser	and Maximize the Browser	
+		myDriver = new ChromeDriver();
+		myDriver.manage().window().maximize();
+				
+	}
+	
+	//Functions	
+	public void openBrowser() {
+		// Open Browser
+		// I/P: TD
+		// O/P: NUll
+		
+		
+	}
+	
+	
+	public void navigateBrowser () {
+		
+	}
+	public void typeText() {
+		
+	}
+	public void clickElement () {
+		
+	}
+	public void verifyText () {
+		
+	}
+	public void closeBrowser() {
+		
+	}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

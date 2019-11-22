@@ -1,0 +1,82 @@
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+public class KDF3 {
+	WebDriver myD;
+	
+	@Test
+	public void myTest() throws Exception {
+		openBrowser("Chrome");
+		navigateBrowser("https://www.youtube.com/");
+	}
+	
+	//Functions	
+	public void openBrowser(String fTD){
+		// Open Browser
+		// I/P: TD (Browser Name)
+		// O/P: NUll
+		// Selenium WebDriver setup
+		
+		if(fTD.equals("Chrome")) {
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Javeria Khaliq\\eclipse-workspace\\Selenium\\chromedriver.exe");
+			myD = new ChromeDriver();
+		} else if(fTD.equals("Edge")) {
+			//System.setProperty("webdriver.chrome.driver", "C:\\Users\\Javeria Khaliq\\eclipse-workspace\\Selenium\\chromedriver.exe");
+			myD = new EdgeDriver();
+		} else if(fTD.equals("IE")) {
+			//System.setProperty("webdriver.chrome.driver", "C:\\Users\\Javeria Khaliq\\eclipse-workspace\\Selenium\\chromedriver.exe");
+			myD = new InternetExplorerDriver();
+		} else if(fTD.equals("FF")) {
+			//System.setProperty("webdriver.chrome.driver", "C:\\Users\\Javeria Khaliq\\eclipse-workspace\\Selenium\\chromedriver.exe");
+			myD = new FirefoxDriver();
+		}
+		
+		myD.manage().window().maximize();
+	}
+	
+	
+	public void navigateBrowser (String fTD) {
+		// Open Browser
+		// I/P: TD (Browser Name)
+		// O/P: NUll
+		// Selenium WebDriver setup
+		myD.navigate().to(fTD);
+		
+	}
+	public void typeText(String fTD, String fEID) {
+		// Open Browser
+		// I/P: TD (what to type), EID (Where to type)
+		// O/P: NUll
+		// Selenium WebDriver setup
+		myD.navigate().to(fTD);
+		myD.findElement(By.xpath(fEID)).sendKeys(fTD);
+	}
+	public void clickElement () {
+		
+	}
+	public void verifyText () {
+		
+	}
+	public void closeBrowser() {
+		
+	}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

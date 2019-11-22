@@ -1,0 +1,65 @@
+
+public class functionBasic2 {
+
+	//Declare variable
+	static int a, b, c, d;
+	public static void main(String[] args) {
+		
+		
+		//Initialize variable
+		//Round 1
+		a = 10;
+		b = 20;
+		c = 30;
+		addNumber();
+		
+		//Initialize variable
+		//Round 2
+		
+		addNumber2(20,30,30);
+		
+		//Initialize variable
+		//Round 3
+		a = 10;
+		b = 40;
+		c = 35;
+		addNumber();
+		
+		
+		
+	}
+		
+		public static void addNumber() {
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		d = a + b;
+		System.out.println("Varibale a is " + a);
+		System.out.println("Variable b is " + b);
+		System.out.println("Variable c is " + c);
+		System.out.println("Variable d is " + d);
+		
+		if(c==d) {
+			System.out.println("Result: Same");
+		}
+		else {
+			System.out.println(" Result: Different");
+		}
+	}
+		public static void addNumber2(int fA, int fB, int fC) {
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("function round 2");
+			int fD = fA + fB;
+			System.out.println("Varibale a is " + fA);
+			System.out.println("Variable b is " + fB);
+			System.out.println("Variable c is " + fC);
+			System.out.println("Variable d is " + fD);
+			
+			if(fC==fD) {
+				System.out.println("Result: Same");
+			}
+			else {
+				System.out.println(" Result: Different");
+			}
+		}
+	}
+
+

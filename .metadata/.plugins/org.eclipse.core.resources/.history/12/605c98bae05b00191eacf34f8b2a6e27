@@ -1,0 +1,117 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.DataFormatter;
+
+public class KDF_Driver1 {
+//Read the Excel sheet
+//Understand the login
+//Execute
+
+static String [][] xTC, xTS;
+static int xTC_R, xTS_R;
+static String xlPath = "C:\\Users\\Javeria Khaliq\\eclipse-workspace\\EXCEl\\KDF3_YT.xls";
+
+public static void main(String[]args) throws Exception {
+	String vTC_ID, vTC_Exe;
+	
+	
+	
+	// 1. Read the i/p KDF Excel.
+	xTC = readXL(xlPath, "TestCases");
+	xTS = readXL(xlPath, "TestSteps"); 
+	
+	xTC_R = xTC.length;
+	xTS_R = xTS.length;
+	
+	System.out.println("Test Case Rows: " + xTC.length);
+	System.out.println("Test steps Rows: " + xTS.length);
+	
+	
+	// Identify Executable Test Cases
+	for( int i=1 ; i<=xTC_R ; i++) {
+		vTC_ID = xTC[i][0];
+		vTC_Exe = xTC[i][2];
+	}
+}
+//*********************************** Utility Function**************************
+	public static String[][] readXL(String fPath, String fSheet) throws Exception{
+		//Input: XL Path and XL Sheet name.
+		//output:
+		String[][] xData;
+		int xRows, xCols;
+		
+		
+		DataFormatter dataFormatter = new DataFormatter();
+		String cellValue;
+		
+		//Get the worksheet
+		File myxl = new File(fPath);
+		FileInputStream myStream = new FileInputStream(myxl);
+		HSSFWorkbook myWB = new HSSFWorkbook(myStream);
+		HSSFSheet mySheet = myWB.getSheet(fSheet);
+		
+		//Count rows and Columns. Create empty 2D array.
+		xRows = mySheet.getLastRowNum()+1;
+		xCols = mySheet.getRow(0).getLastCellNum();
+		xData = new String[xRows][xCols];
+		System.out.println("rows: " + xRows);
+		System.out.println("Column: " + xCols);
+		
+		System.out.println("~~~~~~~~~~~~~~~~~~~ Test Data Below ~~~~~~~~~~~~~~~~~~~~~~");
+		for(int i=0; i<xRows; i++ ) {
+			HSSFRow row = mySheet.getRow(i);
+			for(int j =0; j<xCols; j++ ){
+				cellValue= "-";
+				cellValue = dataFormatter.formatCellValue(row.getCell(j));
+				if(cellValue!=null) {
+					xData[i][j] = cellValue;
+				}
+				System.out.print(cellValue);
+				System.out.print("||||");
+
+				
+			}
+			System.out.println("");
+
+			
+		}
+		   
+		myxl = null;
+		return xData;
+			
+		}
+	
+	public static void writeXL(String fPath, String fSheet, String[][] xData) throws Exception{
+	
+		File outFile = new File(fPath);
+		HSSFWorkbook wb = new HSSFWorkbook();
+		HSSFSheet osheet = wb.createSheet(fSheet);
+		int xR_TS = xData.length;
+		int xC_TS = xData[0].length;
+		
+		for(int myrow=0; myrow<xR_TS; myrow++ ) {
+			HSSFRow row = osheet.createRow(myrow);	
+			for(int mycol =0; mycol < xC_TS; mycol++ ){
+				HSSFCell cell = row.createCell(mycol);	
+				//cell.setCellType(HSSFCell.CELL_TYPE_STRING);
+				cell.setCellValue(xData[myrow][mycol]);
+				}
+			FileOutputStream fOut = new FileOutputStream(outFile);
+			wb.write(fOut);
+			fOut.flush();
+			fOut.close();
+				
+			}
+		wb = null;
+		osheet = null;
+		}
+	}
+
+	
+

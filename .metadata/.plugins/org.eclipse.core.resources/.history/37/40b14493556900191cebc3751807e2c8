@@ -1,0 +1,23 @@
+
+public class UpperCases {
+
+	public static void main(String[] args) {
+		
+		
+		String input = "iQRaJa";
+
+		String upper = input.toUpperCase();
+		String lower = input.toLowerCase();
+		System.out.println("Print the string " + upper);
+		System.out.println("print in lower cases" + lower);
+		
+		  System.out.println(input.length());
+		  
+		 		  String[] r = input.split("(?=\\p{Upper})");
+		  
+		  System.out.println("hggfhgjds" + r );
+
+		
+	}
+
+}

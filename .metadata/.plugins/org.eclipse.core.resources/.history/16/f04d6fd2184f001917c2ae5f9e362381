@@ -1,0 +1,60 @@
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ddf1 {
+	WebDriver myDriver;
+	String expMontlyPayment, vHomevalue, vDownpay;
+	String vLoanAmt, vIRate;
+	
+	
+	@Before
+	public void myBefore() {
+		
+		System.out.println("Before");
+		//prepare Test
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Javeria Khaliq\\eclipse-workspace\\Selenium\\chromedriver.exe");
+		myDriver = new ChromeDriver();
+		myDriver.navigate().to("https://www.mortgagecalculator.org/");
+		myDriver.manage().window().maximize();
+		
+		 expMontlyPayment = "$1,715.58";
+		 vHomevalue ="412000";
+		 vDownpay = "112000";
+		 vLoanAmt= "300000";
+		 vIRate = "4";
+		
+	}
+
+	@Test 
+	public void mytest() {
+		
+		System.out.println("Test1");
+		
+		
+		myDriver.findElement(By.name("param[homevalue]")).sendKeys(vHomevalue);
+		myDriver.findElement(By.name("param[downpayment]")).sendKeys(vDownpay);
+		myDriver.findElement(By.id("loanamt")).sendKeys(vLoanAmt);
+		myDriver.findElement(By.name("param[interest_rate]")).sendKeys(vIRate);
+		
+		
+		//Calculate the Value
+		myDriver.findElement(By.name("cal")).click();
+		
+
+		
+	}
+	
+	@After
+	public void myafter() {
+	
+		System.out.println("My Test Successfully");
+		//myDriver.close();
+		//myDriver.quit();
+	}
+
+}

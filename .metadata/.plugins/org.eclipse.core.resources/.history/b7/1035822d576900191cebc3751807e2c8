@@ -1,0 +1,40 @@
+import java.util.Arrays;
+
+public class UpperCases {
+
+	public static void main(String[] args) {
+		
+		
+		String input = "iQRaJaV";
+
+		String upper = input.toUpperCase();
+		String lower = input.toLowerCase();
+		System.out.println("Print the string " + upper);
+		System.out.println("print in lower cases " + lower);
+		
+		  System.out.println(input.length());
+		 
+		  String[] r = input.split("(?<=.)(?=\\p{Lu})");
+		  System.out.println(Arrays.toString(r));
+
+		  /*
+		  static void convertOpposite(StringBuffer str) 
+		     { 
+		        int ln = str.length(); 
+		             
+		        // Conversion using predefined methods 
+		        for (int i=0; i<ln; i++) 
+		        { 
+		            Character c = str.charAt(i); 
+		            if (Character.isLowerCase(c)) 
+		                str.replace(i, i+1, Character.toUpperCase(c)+""); 
+		            else
+		                str.replace(i, i+1, Character.toLowerCase(c)+""); 
+		             
+		        } 
+		     } 
+		       */
+		
+	}
+
+}

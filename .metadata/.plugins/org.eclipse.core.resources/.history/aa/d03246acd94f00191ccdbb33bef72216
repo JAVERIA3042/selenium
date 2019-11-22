@@ -1,0 +1,50 @@
+
+public class functionBasic2 {
+
+	//Declare variable
+	static int a, b, c, d;
+	public static void main(String[] args) {
+		
+		
+		//Initialize variable
+		//Round 1
+		a = 10;
+		b = 20;
+		c = 30;
+		addNumber();
+		
+		//Initialize variable
+		//Round 2
+		a = 20;
+		b = 30;
+		c = 30;
+		addNumber();
+		
+		//Initialize variable
+		//Round 3
+		a = 10;
+		b = 40;
+		c = 35;
+		addNumber();
+		
+		
+		
+	}
+		
+		public static void addNumber() {
+		d = a + b;
+		System.out.println("Varibale a is " + a);
+		System.out.println("Variable b is " + b);
+		System.out.println("Variable c is " + c);
+		System.out.println("Variable d is " + d);
+		
+		if(c==d) {
+			System.out.println("Result: Same");
+		}
+		else {
+			System.out.println(" Result: Different");
+		}
+	}
+	}
+
+

@@ -1,0 +1,43 @@
+import java.util.concurrent.TimeUnit;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AnyAut_Application {
+	static WebDriver driver;
+
+	@Before
+	public void myBefore() {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Javeria Khaliq\\eclipse-workspace\\Selenium\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("https://anyaut.com/");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		
+	}
+	
+	
+	@Test
+	public void myTest() throws InterruptedException {
+	System.out.println("****************** Test Start Here ************************");
+	//System.out.println(driver.findElement(By.cssSelector("a[class='ytp-title-channel-name']")).getText());
+	//System.out.println(driver.findElement(By.className("ytp-title-channel-name")).isDisplayed());
+	Thread.sleep(2000);
+	driver.findElement(By.xpath("//li[@class='page-scroll']//a[contains(text(),'Features')]")).click();
+
+	}
+	
+	
+	@After
+	public void myAfter() {
+		System.out.println("Driver close Successfully");
+		//driver.close();
+		
+	}
+
+}

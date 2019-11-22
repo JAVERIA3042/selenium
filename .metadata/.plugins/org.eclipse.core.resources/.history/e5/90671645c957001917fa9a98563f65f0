@@ -1,0 +1,62 @@
+import org.junit.Before;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class KDF3 {
+	WebDriver myD;
+	
+	@Before
+	public void myBefore() throws Exception {
+		myD.manage().window().maximize();
+				
+	}
+	
+	//Functions	
+	public void openBrowser(String fTD){
+		// Open Browser
+		// I/P: TD (Browser Name)
+		// O/P: NUll
+		// Selenium WebDriver setup
+		
+		if(fTD.contentEquals("Chrome")) {
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Javeria Khaliq\\eclipse-workspace\\Selenium\\chromedriver.exe");
+			myD = new ChromeDriver();
+		} else if(fTD.contentEquals("Edge")) {
+			//System.setProperty("webdriver.chrome.driver", "C:\\Users\\Javeria Khaliq\\eclipse-workspace\\Selenium\\chromedriver.exe");
+			myD = new EdgeDriver();
+		}
+		
+		myD.manage().window().maximize();
+	}
+	
+	
+	public void navigateBrowser () {
+		
+	}
+	public void typeText() {
+		
+	}
+	public void clickElement () {
+		
+	}
+	public void verifyText () {
+		
+	}
+	public void closeBrowser() {
+		
+	}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

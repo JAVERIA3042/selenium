@@ -1,0 +1,9 @@
+
+public class Methods {
+	
+	public int ValidateHeader() {
+		System.out.println("The Header is Validate ");
+		return 10;
+	}
+
+}

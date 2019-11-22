@@ -1,0 +1,16 @@
+
+public class UpperCases {
+
+	public static void main(String[] args) {
+		
+		
+		String input = "iQRaJa";
+
+		String upper = input.toUpperCase();
+		String lower = input.toLowerCase();
+		System.out.println("Print the string" + upper);
+
+		
+	}
+
+}
